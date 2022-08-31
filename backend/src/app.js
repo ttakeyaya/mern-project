@@ -2,8 +2,15 @@ const express = require('express');
 const connectDB = require('./config/mongoDB');
 const app = express();
 
-// データベースへの接続
+// Connect to MongoDB
 connectDB();
+
+//
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use('/api/users', require('./routes/userRoutes'));
 
 app.get('/', (req, res) => {
   res.send('HI');
