@@ -1,28 +1,43 @@
 @import-normalize;
 body {
-  background-color: #f9f7f7;
   margin: 0;
 }
 
 .container {
   max-width: 2800px;
   margin: 0 auto;
-  background-color: #3f72af;
+  background-color: #f9f7f7;
+  padding: 0 10px;
 }
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .header-links {
   display: flex;
+  justify-content: space-between;
+  width: 250px;
+  font-size: 1.5rem;
+  list-style: none;
+}
+.header-link {
+  text-decoration: none;
+  color: black;
 }
 .btn {
   border: none;
   background-color: #dbe2ef;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   cursor: pointer;
 }
-
+.btn:hover {
+  box-shadow: 0 0 6px 2px rgb(17, 45, 78, 0.3);
+}
+.btn:focus {
+  box-shadow: none;
+}
 .card {
   background-color: #dbe2ef;
   display: flex;

@@ -9,10 +9,14 @@ function Header() {
       </div>
       <ul className="header-links">
         <li>
-          <Link to="/login">Log in</Link>
+          <Link to="/login" className="header-link btn">
+            Log in
+          </Link>
         </li>
         <li>
-          <Link to="/register">Register</Link>
+          <Link to="/register" className="header-link btn">
+            Register
+          </Link>
         </li>
       </ul>
     </header>
