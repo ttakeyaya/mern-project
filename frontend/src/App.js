@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CardList from './CardList';
-
+import './App.css';
 const SAMPLE = [
   {
     id: 1,
