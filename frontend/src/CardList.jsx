@@ -6,11 +6,17 @@ function CardList({ cards }) {
 
   const goToNext = () => {
     const isLastCard = currentIndex === cards.length - 1;
-    const newIndex = isLastCard ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+
+    if (!isLastCard) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      // モダルで統計を表示する
+      alert('your stats here');
+    }
   };
+
   return (
-    <>
+    <section className="card-container">
       {cards.map((card, index) => {
         return (
           <Card
@@ -20,8 +26,10 @@ function CardList({ cards }) {
           />
         );
       })}
-      <button onClick={goToNext}>Next Question</button>
-    </>
+      <button onClick={goToNext}>
+        {currentIndex === cards.length - 1 ? 'Show stats' : 'Next Question'}
+      </button>
+    </section>
   );
 }
 

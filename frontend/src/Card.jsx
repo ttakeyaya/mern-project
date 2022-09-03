@@ -6,6 +6,7 @@ function Card({ card, isVisible }) {
     e.preventDefault();
     setShowAnswer(!showAnswer);
   };
+
   return (
     <div className={isVisible ? 'card' : 'card-invisible'}>
       {card.question}

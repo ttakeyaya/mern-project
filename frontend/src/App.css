@@ -1,5 +1,13 @@
 body {
-  background-color: yellow;
+  background-color: #f9f7f7;
+}
+
+.card {
+  /* position: absolute; */
+  border: 1px solid red;
+  height: 180px;
+  width: 200px;
+  border-radius: 2rem;
 }
 
 .card-invisible {
