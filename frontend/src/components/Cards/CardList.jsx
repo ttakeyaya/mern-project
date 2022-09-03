@@ -17,6 +17,7 @@ function CardList({ cards }) {
 
   return (
     <section className="card-container">
+      {currentIndex + 1 + '/' + cards.length}
       {cards.map((card, index) => {
         return (
           <Card
