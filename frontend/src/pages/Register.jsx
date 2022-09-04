@@ -58,8 +58,9 @@ function Register() {
     <>
       <section className="form-container">
         <h1 className="form-title">登録フォーム</h1>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="form">
           <div className="form-group">
+            <label htmlFor="お名前">お名前:</label>
             <input
               type="text"
               className="form-control"
@@ -67,11 +68,12 @@ function Register() {
               value={name}
               name="name"
               onChange={onChange}
-              placeholder="お名前"
+              placeholder="お名前を入力してください"
               required
             />
           </div>
           <div className="form-group">
+            <label htmlFor="email">メールアドレス:</label>
             <input
               type="email"
               className="form-control"
@@ -79,11 +81,12 @@ function Register() {
               value={email}
               name="email"
               onChange={onChange}
-              placeholder="メールアドレス"
+              placeholder="メールアドレスを入力してください"
               required
             />
           </div>
           <div className="form-group">
+            <label htmlFor="password">パスワード:</label>
             <input
               type="password"
               className="form-control"
@@ -91,11 +94,12 @@ function Register() {
               value={password}
               name="password"
               onChange={onChange}
-              placeholder="パスワード"
+              placeholder="パスワードを入力してください"
               required
             />
           </div>
           <div className="form-group">
+            <label htmlFor="password2">パスワード(確認用)</label>
             <input
               type="password"
               className="form-control"
@@ -103,12 +107,12 @@ function Register() {
               value={password2}
               name="password2"
               onChange={onChange}
-              placeholder="パスワード(確認)"
+              placeholder="再度パスワードを入力してください"
               required
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-block">submit</button>
+            <button className="btn btn-block">登録する</button>
           </div>
         </form>
       </section>

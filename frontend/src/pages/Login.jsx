@@ -18,13 +18,8 @@ function Login() {
 
   return (
     <>
-      <section className="heading">
-        <h1>
-          Login
-          <p>Please log in to get support</p>
-        </h1>
-      </section>
-      <section className="form">
+      <section className="form-container">
+        <h1>ログイン</h1>
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
@@ -34,7 +29,7 @@ function Login() {
               value={email}
               name="email"
               onChange={onChange}
-              placeholder="enter your email"
+              placeholder="メールアドレス"
               required
             />
           </div>
@@ -46,12 +41,12 @@ function Login() {
               value={password}
               name="password"
               onChange={onChange}
-              placeholder="enter your password"
+              placeholder="パスワード"
               required
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-block">submit</button>
+            <button className="btn btn-block">ログインする</button>
           </div>
         </form>
       </section>
