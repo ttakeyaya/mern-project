@@ -130,6 +130,26 @@ body {
 .home-register-btn:focus {
   border: 1px solid black;
 }
+
+.form-container {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+}
+.form-group {
+  margin-top: 0.5rem;
+}
+.form-control {
+  border: none;
+  border-radius: 0.4rem;
+}
+.form-control:focus {
+  background-color: yellow;
+}
+
 .footer {
   background-color: rgb(63, 114, 175);
   text-align: center;

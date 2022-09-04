@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { register } from '../features/auth/authSlice';
 
 function Register() {
@@ -20,12 +20,16 @@ function Register() {
     (state) => state.auth
   );
 
+  // react-router-dom
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (isSuccess) {
     }
 
     if (isSuccess || user) {
-      Navigate('/');
+      console.log('hi there');
+      navigate('/');
     }
   });
 
@@ -52,13 +56,8 @@ function Register() {
   };
   return (
     <>
-      <section>
-        <h1>
-          Register
-          <p>Please create an account</p>
-        </h1>
-      </section>
-      <section>
+      <section className="form-container">
+        <h1 className="form-title">登録フォーム</h1>
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
@@ -68,7 +67,7 @@ function Register() {
               value={name}
               name="name"
               onChange={onChange}
-              placeholder="enter your name"
+              placeholder="お名前"
               required
             />
           </div>
@@ -80,7 +79,7 @@ function Register() {
               value={email}
               name="email"
               onChange={onChange}
-              placeholder="enter your email"
+              placeholder="メールアドレス"
               required
             />
           </div>
@@ -92,7 +91,7 @@ function Register() {
               value={password}
               name="password"
               onChange={onChange}
-              placeholder="enter your password"
+              placeholder="パスワード"
               required
             />
           </div>
@@ -104,7 +103,7 @@ function Register() {
               value={password2}
               name="password2"
               onChange={onChange}
-              placeholder="Confirm your password"
+              placeholder="パスワード(確認)"
               required
             />
           </div>
