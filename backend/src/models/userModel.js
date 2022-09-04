@@ -4,16 +4,16 @@ const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      require: true,
+      require: [true, '名前を入力してください'],
     },
     email: {
       type: String,
-      require: true,
+      require: [true, 'メールアドレスを入力してください'],
       unique: true,
     },
     password: {
       type: String,
-      require: true,
+      require: [true, 'パスワードを入力してください'],
     },
   },
   {
