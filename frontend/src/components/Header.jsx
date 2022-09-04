@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaBook as Logo } from 'react-icons/fa';
+
+import Button from './Button';
 
 function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/">Logo</Link>
+        <Link to="/">
+          <Logo className="logo" />
+        </Link>
       </div>
       <ul className="header-links">
         <li>

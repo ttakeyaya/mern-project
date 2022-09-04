@@ -1,19 +1,22 @@
 @import-normalize;
 body {
   margin: 0;
+  background-color: rgb(249, 247, 247);
 }
 
 .container {
   max-width: 2800px;
   margin: 0 auto;
-  background-color: #f9f7f7;
-  padding: 0 10px;
 }
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: rgb(63, 114, 175);
+  padding: 0 10px;
 }
+
 .header-links {
   display: flex;
   justify-content: space-between;
@@ -21,9 +24,20 @@ body {
   font-size: 1.5rem;
   list-style: none;
 }
+
 .header-link {
   text-decoration: none;
   color: black;
+}
+
+.home {
+  background-color: rgb(219, 226, 239);
+  text-align: center;
+  padding-bottom: 5rem;
+}
+.logo {
+  font-size: 30px;
+  color: rgb(219, 226, 239);
 }
 .btn {
   border: none;
@@ -33,7 +47,7 @@ body {
   cursor: pointer;
 }
 .btn:hover {
-  box-shadow: 0 0 6px 2px rgb(17, 45, 78, 0.3);
+  box-shadow: 0 0 6px 2px #ffba3b;
 }
 .btn:focus {
   box-shadow: none;
@@ -57,4 +71,70 @@ body {
 }
 .card-invisible {
   visibility: hidden;
+}
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.home-title {
+  font-size: 4rem;
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0;
+  padding-top: 2.5rem;
+}
+.home-slogan {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.features {
+  margin-top: 2.5rem;
+}
+.features-title {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+.features-list {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  max-width: 300px;
+  text-align: left;
+  padding-left: 0.6rem;
+}
+.features-list-container {
+  /* display: flex;
+  justify-content: space-around;
+  width: 90%;
+  height: 200px; */
+}
+.features-list-title {
+  font-size: 1rem;
+}
+.features-list-txt {
+  font-size: 0.5rem;
+}
+.home-register-btn {
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+.home-register-btn:hover {
+  border: none;
+  color: black;
+}
+.home-register-btn:focus {
+  border: 1px solid black;
+}
+.footer {
+  background-color: rgb(63, 114, 175);
+  text-align: center;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.7);
 }
