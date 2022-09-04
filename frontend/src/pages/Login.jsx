@@ -19,9 +19,10 @@ function Login() {
   return (
     <>
       <section className="form-container">
-        <h1>ログイン</h1>
+        <h1 className="form-title">ログイン</h1>
         <form onSubmit={onSubmit}>
           <div className="form-group">
+            <label htmlFor="お名前">メールアドレス:</label>
             <input
               type="email"
               className="form-control"
@@ -34,6 +35,7 @@ function Login() {
             />
           </div>
           <div className="form-group">
+            <label htmlFor="お名前">パスワード:</label>
             <input
               type="password"
               className="form-control"
