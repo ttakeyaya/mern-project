@@ -1,14 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { register } from '../features/auth/authSlice';
 
 function Register() {
+  // react-redux
+  const dispatch = useDispatch();
+  // react
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     password2: '',
   });
-
   const { name, email, password, password2 } = formData;
+
+  // redux-store:
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isSuccess) {
+    }
+
+    if (isSuccess || user) {
+      Navigate('/');
+    }
+  });
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -19,6 +38,17 @@ function Register() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (password !== password2) {
+      throw new Error('パスワードが一致しません');
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+      };
+      console.log(userData);
+      dispatch(register(userData));
+    }
   };
   return (
     <>
@@ -74,7 +104,7 @@ function Register() {
               value={password2}
               name="password2"
               onChange={onChange}
-              placeholder="Comfirm your password"
+              placeholder="Confirm your password"
               required
             />
           </div>
