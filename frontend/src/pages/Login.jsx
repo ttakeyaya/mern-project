@@ -1,19 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { login, clear } from '../features/auth/authSlice';
 
 function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
   const { email, password } = formData;
+
+  // redux: use auth slice
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+    }
+    if (isSuccess || user) {
+      navigate('/');
+    }
+    dispatch(clear());
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const userData = {
+      email,
+      password,
+    };
+    dispatch(login(userData));
   };
 
   const onChange = (e) => {
-    console.log(e);
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (

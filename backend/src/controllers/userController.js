@@ -52,7 +52,23 @@ const registerUser = async (req, res) => {
     throw new Error('ユーザー情報が間違っています。');
   }
 };
-const loginUser = (req, res) => {};
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
+
+  // ユーザーの存在確認
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(401);
+    throw new Error('入力情報が間違っています');
+  }
+};
 const getProfile = (req, res) => {};
 
 //
