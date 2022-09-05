@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import './Card.css';
 
 function Card({ card, isVisible }) {
   const [showAnswer, setShowAnswer] = useState(false);
@@ -27,7 +28,7 @@ function Card({ card, isVisible }) {
   });
 
   return (
-    <section
+    <article
       className={isVisible ? 'card' : 'card-invisible'}
       style={{ height }}
       ref={cardElement}
@@ -39,12 +40,12 @@ function Card({ card, isVisible }) {
             {option}
           </div>
         ))}
-        <button onClick={onClickAnswerHandler} className="btn">
-          {showAnswer ? 'x' : 'Show Answer'}
+        <button onClick={onClickAnswerHandler} className="btn btn-answer">
+          {showAnswer ? 'x' : '答え'}
         </button>
         {showAnswer ? card.answer : ''}
       </div>
-    </section>
+    </article>
   );
 }
 

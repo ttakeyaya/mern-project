@@ -1,0 +1,26 @@
+.card {
+  background-color: rgb(219, 226, 239, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 2rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+}
+
+.card-option:first-child {
+  margin-top: 0;
+}
+
+.card-invisible {
+  visibility: hidden;
+}
+
+.btn-answer {
+}

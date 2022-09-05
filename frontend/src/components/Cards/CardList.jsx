@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Card from './Card';
+import './CardList.css';
 
 function CardList({ cards }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,7 +18,6 @@ function CardList({ cards }) {
 
   return (
     <section className="card-container">
-      {currentIndex + 1 + '/' + cards.length}
       {cards.map((card, index) => {
         return (
           <Card
@@ -27,8 +27,8 @@ function CardList({ cards }) {
           />
         );
       })}
-      <button onClick={goToNext}>
-        {currentIndex === cards.length - 1 ? 'Show stats' : 'Next Question'}
+      <button onClick={goToNext} className="btn btn-card-shown">
+        {currentIndex === cards.length - 1 ? 'Show stats' : '次へ'}
       </button>
     </section>
   );
