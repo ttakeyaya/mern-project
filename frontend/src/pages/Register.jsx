@@ -28,7 +28,6 @@ function Register() {
     }
 
     if (isSuccess || user) {
-      console.log('hi there');
       navigate('/');
     }
   });

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Profile from './pages/Profile';
 import CardList from './components/Cards/CardList';
 
 import { PrivateRoute } from './components/Routes/PrivateRoute';
@@ -35,7 +36,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="register" element={<Register />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<PrivateRoute />}>
+              <Route path="profile" element={<Profile />} />
+            </Route>
             <Route path="/cards" element={<PrivateRoute />}>
               <Route path="/cards" element={<CardList cards={flashCards} />} />
             </Route>
