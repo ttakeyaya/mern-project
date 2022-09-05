@@ -52,6 +52,10 @@ const registerUser = async (req, res) => {
     throw new Error('ユーザー情報が間違っています。');
   }
 };
+
+/**
+ * Route /api/login
+ */
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -69,7 +73,16 @@ const loginUser = async (req, res) => {
     throw new Error('入力情報が間違っています');
   }
 };
-const getProfile = (req, res) => {};
+
+//Route /api/users/profile
+const getProfile = async (req, res) => {
+  const user = {
+    id: req.user._id,
+    email: req.user.email,
+    name: req.user.name,
+  };
+  res.status(200).json(user);
+};
 
 //
 const generateToken = (id) => {
