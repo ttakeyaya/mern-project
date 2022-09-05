@@ -20,8 +20,9 @@ function Login() {
   useEffect(() => {
     if (isError) {
     }
+    // ログイン成功後に遷移
     if (isSuccess || user) {
-      navigate('/');
+      navigate('/cards');
     }
     dispatch(clear());
   }, [isError, isSuccess, user, message, navigate, dispatch]);
@@ -56,7 +57,7 @@ function Login() {
               value={email}
               name="email"
               onChange={onChange}
-              placeholder="メールアドレス"
+              placeholder="メールアドレスを入力してください"
               required
             />
           </div>
@@ -69,7 +70,7 @@ function Login() {
               value={password}
               name="password"
               onChange={onChange}
-              placeholder="パスワード"
+              placeholder="パスワードを入力してください"
               required
             />
           </div>

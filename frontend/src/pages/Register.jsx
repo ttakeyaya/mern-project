@@ -50,7 +50,6 @@ function Register() {
         email,
         password,
       };
-      console.log(userData);
       dispatch(register(userData));
     }
   };

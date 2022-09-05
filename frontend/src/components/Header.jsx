@@ -24,12 +24,12 @@ function Header() {
     <>
       <li>
         <Link to="/login" className="header-link btn">
-          Log in
+          ログイン
         </Link>
       </li>
       <li>
         <Link to="/register" className="header-link btn">
-          Register
+          登録
         </Link>
       </li>
     </>

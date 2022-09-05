@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import CardList from './components/Cards/CardList';
+
+import { PrivateRoute } from './components/Routes/PrivateRoute';
 import './App.css';
 const SAMPLE = [
   {
@@ -34,7 +36,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="register" element={<Register />} />
-            <Route path="cards" element={<CardList cards={flashCards} />} />
+            <Route path="/cards" element={<PrivateRoute />}>
+              <Route path="/cards" element={<CardList cards={flashCards} />} />
+            </Route>
           </Routes>
           <Footer />
         </div>
