@@ -22,7 +22,7 @@ function Login() {
     }
     // ログイン成功後に遷移
     if (isSuccess || user) {
-      navigate('/cards');
+      navigate('/');
     }
     dispatch(clear());
   }, [isError, isSuccess, user, message, navigate, dispatch]);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import {
   FaPencilAlt,
   FaChartLine,
@@ -7,9 +8,17 @@ import {
   FaPeopleArrows,
 } from 'react-icons/fa';
 
+import UserHome from './UserHome';
 import Button from '../components/Button';
 
 function Home() {
+  const { user } = useSelector((state) => state.auth);
+
+  // ログインしている場合の処理
+  if (user) {
+    return <UserHome />;
+  }
+
   return (
     <main class="home">
       <h1 className="home-title">Flash Card App</h1>
