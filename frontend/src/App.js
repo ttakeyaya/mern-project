@@ -13,13 +13,25 @@ import './App.css';
 const SAMPLE = [
   {
     id: 1,
-    question: 'what is 2  + 2 dwdwdw',
+    question: 'what is 2  + 2 dwdwdw2222222222222222222',
     answer: '4',
     options: ['2', '3', '4', '5'],
   },
   {
     id: 2,
     question: 'Question 2?',
+    answer: 'Answer',
+    options: ['Answer1', 'Answer2', 'Answer3', 'Answer4'],
+  },
+  {
+    id: 3,
+    question: 'Question 3?',
+    answer: 'Answer',
+    options: ['Answer1', 'Answer2', 'Answer3', 'Answer4'],
+  },
+  {
+    id: 4,
+    question: 'Question 4?',
     answer: 'Answer',
     options: ['Answer1', 'Answer2', 'Answer3', 'Answer4'],
   },

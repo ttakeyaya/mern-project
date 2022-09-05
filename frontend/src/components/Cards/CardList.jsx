@@ -17,16 +17,18 @@ function CardList({ cards }) {
   };
 
   return (
-    <section className="card-container">
-      {cards.map((card, index) => {
-        return (
-          <Card
-            card={card}
-            key={card.id}
-            isVisible={index === currentIndex ? true : false}
-          />
-        );
-      })}
+    <section className="card-list">
+      <div className="card-container">
+        {cards.map((card, index) => {
+          return (
+            <Card
+              card={card}
+              key={card.id}
+              isVisible={index === currentIndex ? true : false}
+            />
+          );
+        })}
+      </div>
       <button onClick={goToNext} className="btn btn-card-shown">
         {currentIndex === cards.length - 1 ? 'Show stats' : '次へ'}
       </button>
