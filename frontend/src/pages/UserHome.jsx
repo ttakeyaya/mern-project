@@ -92,7 +92,7 @@ function UserMain() {
           </div>
           <div className="form-group">
             <button className="btn" type="submit">
-              Submit
+              作成する
             </button>
           </div>
         </form>

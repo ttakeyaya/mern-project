@@ -36,10 +36,10 @@ function Card({ card, isVisible }) {
     >
       <div>
         <h3 className="card-title">{question}</h3>
-        <button onClick={onClickAnswerHandler} className="btn">
-          {showAnswer ? 'x' : 'Show Answer'}
+        <button onClick={onClickAnswerHandler} className="btn btn-answer">
+          {showAnswer ? 'x' : '答え'}
         </button>
-        {showAnswer ? answer : ''}
+        <span>{showAnswer ? answer : ''}</span>
       </div>
     </section>
   );

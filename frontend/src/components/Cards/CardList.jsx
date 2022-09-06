@@ -39,7 +39,9 @@ function CardList() {
       </div>
       <button onClick={goToNext} className="btn btn-card-shown">
         {currentIndex === cards.length - 1 ? (
-          <Link to="/">一覧画面へ戻る</Link>
+          <Link to="/" class="link-btn">
+            一覧画面へ戻る
+          </Link>
         ) : (
           '次へ'
         )}
