@@ -30,11 +30,6 @@ body {
   color: black;
 }
 
-.home {
-  background-color: rgb(219, 226, 239);
-  text-align: center;
-  padding-bottom: 5rem;
-}
 .logo {
   font-size: 30px;
   color: rgb(219, 226, 239);

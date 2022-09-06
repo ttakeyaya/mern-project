@@ -10,6 +10,7 @@ import {
 
 import UserHome from './UserHome';
 import Button from '../components/Button';
+import './Home.css';
 
 function Home() {
   const { user } = useSelector((state) => state.auth);
