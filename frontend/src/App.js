@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import CardList from './components/Cards/CardList';
+import Cards from './pages/Cards';
 
 import { PrivateRoute } from './components/Routes/PrivateRoute';
 import './App.css';
@@ -59,7 +60,13 @@ function App() {
               <Route path="profile" element={<Profile />} />
             </Route>
             <Route path="/cards" element={<PrivateRoute />}>
-              <Route path="/cards" element={<CardList cards={flashCards} />} />
+              <Route path="/cards" element={<Cards />} />
+            </Route>
+            <Route path="/cards/play" element={<PrivateRoute />}>
+              <Route
+                path="/cards/play"
+                element={<CardList cards={flashCards} />}
+              />
             </Route>
           </Routes>
           <Footer />
