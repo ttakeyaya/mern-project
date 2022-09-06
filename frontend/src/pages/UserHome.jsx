@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 
 import { createCard } from '../features/card/cardSlice';
 
+import './UserHome.css';
 // requirement
 Modal.setAppElement('#root');
 
@@ -39,18 +40,33 @@ function UserMain() {
   return (
     <main className="user-home">
       <h1>{user.name}'s カード</h1>
-      <Link to="/cards">カード一覧</Link>
-      <button onClick={openModal}>カード登録</button>
-      <Link to="/cards/play">カードプレイ</Link>
+      <div className="user-home-btn-container">
+        <button className="btn">
+          <Link to="/cards" className="user-home-link">
+            カード一覧
+          </Link>
+        </button>
+        <button onClick={openModal} className="user-home-link btn">
+          カード登録
+        </button>
+        <button className="btn">
+          <Link to="/cards/play" className="user-home-link">
+            プレイ
+          </Link>
+        </button>
+      </div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Add Card"
       >
-        <h2>新規カード</h2>
-        <button className="btn" onClick={closeModal}>
-          x
-        </button>
+        <div class="modal-head-container">
+          <h2 class="modal-title">新規カード</h2>
+          <button className="modal-close-btn" onClick={closeModal}>
+            x
+          </button>
+        </div>
+
         <form onSubmit={onCardSubmit}>
           <div className="form-group">
             <label htmlFor="cardQuestion">問題:</label>

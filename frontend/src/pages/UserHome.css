@@ -1,0 +1,32 @@
+.user-home {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+.modal-head-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal-title {
+  font-size: 2rem;
+}
+.modal-close-btn {
+  border: none;
+  width: 4.5rem;
+  height: 4.5rem;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.user-home-btn-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.user-home-link {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}

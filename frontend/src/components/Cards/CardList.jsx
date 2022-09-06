@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router-dom';
 import { getCards } from '../../features/card/cardSlice';
 import Card from './Card';
 import './CardList.css';
@@ -7,6 +8,7 @@ import './CardList.css';
 function CardList() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { cards } = useSelector((state) => state.cards);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,9 +21,6 @@ function CardList() {
 
     if (!isLastCard) {
       setCurrentIndex(currentIndex + 1);
-    } else {
-      // モダルで統計を表示する
-      alert('your stats here');
     }
   };
 
@@ -39,7 +38,11 @@ function CardList() {
         })}
       </div>
       <button onClick={goToNext} className="btn btn-card-shown">
-        {currentIndex === cards.length - 1 ? 'Show stats' : '次へ'}
+        {currentIndex === cards.length - 1 ? (
+          <Link to="/">一覧画面へ戻る</Link>
+        ) : (
+          '次へ'
+        )}
       </button>
     </section>
   );
