@@ -19,6 +19,7 @@ function Cards() {
   useEffect(() => {
     dispatch(getCards());
   }, [dispatch]);
+
   console.log(cards);
   return (
     <section>

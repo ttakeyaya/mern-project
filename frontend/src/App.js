@@ -42,7 +42,7 @@ const SAMPLE = [
  *
  * ユーザーがログインしているかどうかで、
  * route '/'へアクセスした場合に表示させる内容が異なる。
- * <Route>として定義されていないのでわかりにくい。
+ * <Route>として定義されていないのでわかりにくいので要修正
  */
 function App() {
   const [flashCards, setFlashCards] = useState(SAMPLE);

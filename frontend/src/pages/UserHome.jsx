@@ -33,6 +33,7 @@ function UserMain() {
 
     dispatch(createCard(cardData, user.token));
     closeModal();
+    navigate('/cards');
   };
 
   return (
