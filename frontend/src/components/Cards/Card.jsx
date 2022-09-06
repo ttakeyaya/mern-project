@@ -4,6 +4,7 @@ import './Card.css';
 function Card({ card, isVisible }) {
   const [showAnswer, setShowAnswer] = useState(false);
   const [height, setHeight] = useState('initial');
+  const { question, answer } = card;
 
   const cardElement = useRef();
 
@@ -21,31 +22,26 @@ function Card({ card, isVisible }) {
     setHeight(cardHeight);
   };
 
-  useEffect(setMaxHeight, [card.question, card.answer, card.options]);
+  useEffect(setMaxHeight, [question, answer]);
   useEffect(() => {
     window.addEventListener('resize', setMaxHeight);
     return () => window.removeEventListener('resize', setMaxHeight);
   });
 
   return (
-    <article
+    <section
       className={isVisible ? 'card' : 'card-invisible'}
       style={{ height }}
       ref={cardElement}
     >
       <div>
-        <h3 className="card-title">{card.question}</h3>
-        {card.options.map((option) => (
-          <div key={option} className="card-option">
-            {option}
-          </div>
-        ))}
-        <button onClick={onClickAnswerHandler} className="btn btn-answer">
-          {showAnswer ? 'x' : '答え'}
+        <h3 className="card-title">{question}</h3>
+        <button onClick={onClickAnswerHandler} className="btn">
+          {showAnswer ? 'x' : 'Show Answer'}
         </button>
-        {showAnswer ? card.answer : ''}
+        {showAnswer ? answer : ''}
       </div>
-    </article>
+    </section>
   );
 }
 

@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCards } from '../../features/card/cardSlice';
 import Card from './Card';
 import './CardList.css';
 
-function CardList({ cards }) {
+function CardList() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { cards } = useSelector((state) => state.cards);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCards());
+  }, [dispatch]);
+  console.log(cards);
 
   const goToNext = () => {
     const isLastCard = currentIndex === cards.length - 1;
@@ -23,7 +32,7 @@ function CardList({ cards }) {
           return (
             <Card
               card={card}
-              key={card.id}
+              key={card._id}
               isVisible={index === currentIndex ? true : false}
             />
           );
