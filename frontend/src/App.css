@@ -42,18 +42,6 @@ body {
   flex-flow: column;
 }
 
-.home-title {
-  font-size: 4rem;
-  color: rgba(0, 0, 0, 0.8);
-  margin: 0;
-  padding-top: 2.5rem;
-}
-.home-slogan {
-  margin-top: 0;
-  font-size: 1.8rem;
-  color: rgba(0, 0, 0, 0.8);
-}
-
 .features {
   margin-top: 2.5rem;
 }

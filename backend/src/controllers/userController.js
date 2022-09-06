@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const asyncHandler = require('express-async-handler');
 
 const User = require('../models/userModel');
 
@@ -7,20 +8,20 @@ const User = require('../models/userModel');
  * Description
  *  Register a new user
  * Route
- *  /api/users
+ * /api/users
  *
  * TODO
  *  -コントローラーに新規ロジックが含まれているのでリファクタリングする
  */
-const registerUser = async (req, res) => {
+const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
-  // validation
+  // 検証
   if (!name || !email || !password) {
     res.status(400);
-    throw new Error('全フィールドを記入してください');
+    throw new Error('フィールドを記入してください');
   }
-  // Find if user already exists
+  // ユーザーがDBに存在しているかどうか取得
   const userExists = await User.findOne({ email });
 
   if (userExists) {
@@ -29,11 +30,10 @@ const registerUser = async (req, res) => {
     throw new Error('ユーザー情報が間違っています。');
   }
 
-  // Hash password
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
 
-  // create user
+  // 新規ユーザーの作成
   const user = await User.create({
     name,
     email,
@@ -51,12 +51,12 @@ const registerUser = async (req, res) => {
     res.status(400);
     throw new Error('ユーザー情報が間違っています。');
   }
-};
+});
 
 /**
  * Route /api/login
  */
-const loginUser = async (req, res) => {
+const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
 
@@ -72,17 +72,17 @@ const loginUser = async (req, res) => {
     res.status(401);
     throw new Error('入力情報が間違っています');
   }
-};
+});
 
 //Route /api/users/profile
-const getProfile = async (req, res) => {
+const getProfile = asyncHandler(async (req, res) => {
   const user = {
     id: req.user._id,
     email: req.user.email,
     name: req.user.name,
   };
   res.status(200).json(user);
-};
+});
 
 //
 const generateToken = (id) => {

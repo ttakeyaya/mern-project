@@ -1,3 +1,4 @@
+const asyncHandler = require('express-async-handler');
 const User = require('../models/userModel');
 const Card = require('../models/cardModel');
 
@@ -6,7 +7,7 @@ const Card = require('../models/cardModel');
  * @route GET /api/cards
  * @access private
  */
-const getCards = async (req, res) => {
+const getCards = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user.id);
   if (!user) {
     res.status(401);
@@ -16,13 +17,13 @@ const getCards = async (req, res) => {
   const cards = await Card.find({ user: req.user.id });
 
   res.status(200).json(cards);
-};
+});
 
 /**
  * @route POST /api/cards
  * @access private
  */
-const createCard = async (req, res) => {
+const createCard = asyncHandler(async (req, res) => {
   const { question, answer, description } = req.body;
 
   if (!question || !answer) {
@@ -43,13 +44,13 @@ const createCard = async (req, res) => {
     user: req.user.id,
   });
   res.status(201).json(card);
-};
+});
 
 /**
  * @route DELETE /api/cards/:id
  * @access private
  */
-const deleteCard = async (req, res) => {
+const deleteCard = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user.id);
   if (!user) {
     res.status(401);
@@ -69,14 +70,14 @@ const deleteCard = async (req, res) => {
 
   await card.remove();
   res.status(200).json({ success: true });
-};
+});
 
 /**
  *
  * @route PUT /api/cards/:id
  * @access private
  */
-const updateCard = async (req, res) => {
+const updateCard = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user.id);
   if (!user) {
     res.status(401);
@@ -97,7 +98,7 @@ const updateCard = async (req, res) => {
 
   const updatedCard = await Card.findByIdAndUpdate(req.params.id, req.body);
   res.status(200).json(updatedCard);
-};
+});
 
 module.exports = {
   getCards,
