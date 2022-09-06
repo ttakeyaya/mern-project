@@ -5,6 +5,6 @@ import cardReducer from '../features/card/cardSlice';
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    card: cardReducer,
+    cards: cardReducer,
   },
 });
