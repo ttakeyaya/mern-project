@@ -36,13 +36,13 @@ const cardService = {
     const response = await axios.delete(API_URI + id, config);
     return response.data;
   },
-  updateCard: async (cardData, id) => {
+  updateCard: async (cardData, token) => {
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     };
-    const response = await axios.put(API_URI + id, cardData, config);
+    const response = await axios.put(API_URI + cardData._id, cardData, config);
     return response.data;
   },
 };

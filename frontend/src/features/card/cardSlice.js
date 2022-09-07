@@ -73,10 +73,10 @@ export const deleteCard = createAsyncThunk(
 
 export const updateCard = createAsyncThunk(
   'card/update',
-  async (cardData, id, thunkAPI) => {
+  async (cardData, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await cardService.updateCard(cardData, id, token);
+      return await cardService.updateCard(cardData, token);
     } catch (error) {
       /**
        * エラーが発生したらエラーメッセージを生成する

@@ -31,10 +31,12 @@ function Card(props) {
     e.preventDefault();
 
     const cardData = {
+      _id,
+      user,
       question: cardQuestion,
       answer: cardAnswer,
     };
-    props.update(cardData, _id);
+    props.update(cardData);
     closeModal();
     navigate('/cards');
   };
