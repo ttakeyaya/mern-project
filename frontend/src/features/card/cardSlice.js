@@ -49,6 +49,50 @@ export const getCards = createAsyncThunk('card/getAll', async (_, thunkAPI) => {
   }
 });
 
+export const deleteCard = createAsyncThunk(
+  'card/delete',
+  async (cardId, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await cardService.deleteCard(cardId, token);
+    } catch (error) {
+      /**
+       * エラーが発生したらエラーメッセージを生成する
+       */
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      // この関数によってregister.rejectへのaction payloadが渡される。
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+export const updateCard = createAsyncThunk(
+  'card/update',
+  async (cardData, id, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+      return await cardService.updateCard(cardData, id, token);
+    } catch (error) {
+      /**
+       * エラーが発生したらエラーメッセージを生成する
+       */
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      // この関数によってregister.rejectへのaction payloadが渡される。
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const cardSlice = createSlice({
   name: 'card',
   initialState,

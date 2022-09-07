@@ -20,9 +20,4 @@ app.use(errorHandler);
 //   res.send('launch the app');
 // });
 
-app.use((err, req, res, next) => {
-  console.log('Hello error');
-  res.status(500).send('Wrong');
-});
-
 module.exports = app;

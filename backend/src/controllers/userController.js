@@ -70,7 +70,7 @@ const loginUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(401);
-    throw new Error('入力情報が間違っています');
+    throw new Error('認証に失敗しました。入力情報をもう一度確認ください');
   }
 });
 

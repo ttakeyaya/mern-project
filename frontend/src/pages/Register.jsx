@@ -24,7 +24,8 @@ function Register() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isSuccess) {
+    if (isError) {
+      // エラーメッセージの表示
     }
 
     if (isSuccess || user) {

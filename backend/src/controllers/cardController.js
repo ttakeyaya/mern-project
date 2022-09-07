@@ -58,7 +58,7 @@ const deleteCard = asyncHandler(async (req, res) => {
   }
   const card = await Card.findById(req.params.id);
 
-  if (!ticket) {
+  if (!card) {
     res.status(404);
     throw new Error('カードが見つかりません');
   }
@@ -79,6 +79,7 @@ const deleteCard = asyncHandler(async (req, res) => {
  */
 const updateCard = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user.id);
+
   if (!user) {
     res.status(401);
     throw new Error('該当するユーザーが見つかりません');
@@ -91,7 +92,7 @@ const updateCard = asyncHandler(async (req, res) => {
     throw new Error('該当するカードが見当たりません');
   }
 
-  if (ticket.user.toString() !== req.user.id) {
+  if (card.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error('認可されていません');
   }

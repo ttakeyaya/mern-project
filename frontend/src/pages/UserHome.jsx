@@ -54,6 +54,48 @@ function UserMain() {
             プレイ
           </Link>
         </button>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          contentLabel="Add Card"
+        >
+          <div class="modal-head-container">
+            <h2 class="modal-title">新規カード</h2>
+            <button className="modal-close-btn" onClick={closeModal}>
+              x
+            </button>
+          </div>
+
+          <form onSubmit={onCardSubmit}>
+            <div className="form-group">
+              <label htmlFor="cardQuestion">問題:</label>
+              <textarea
+                name="cardQuestion"
+                id="cardQuestion"
+                className="form-control"
+                placeholder="問題を記入してください"
+                value={cardQuestion}
+                onChange={(e) => setCardQuestion(e.target.value)}
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="cardAnswer">回答:</label>
+              <textarea
+                name="cardAnswer"
+                id="cardAnswer"
+                className="form-control"
+                placeholder="問題の答えを入力してください"
+                value={cardAnswer}
+                onChange={(e) => setCardAnswer(e.target.value)}
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <button className="btn" type="submit">
+                作成する
+              </button>
+            </div>
+          </form>
+        </Modal>
       </div>
       <Modal
         isOpen={modalIsOpen}

@@ -4,7 +4,7 @@
  */
 import axios from 'axios';
 
-const API_URI = '/api/cards/';
+const API_URI = 'api/cards/';
 
 const cardService = {
   createCard: async (cardData, token) => {
@@ -25,6 +25,24 @@ const cardService = {
     };
 
     const response = await axios.get(API_URI, config);
+    return response.data;
+  },
+  deleteCard: async (id, token) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.delete(API_URI + id, config);
+    return response.data;
+  },
+  updateCard: async (cardData, id) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.put(API_URI + id, cardData, config);
     return response.data;
   },
 };

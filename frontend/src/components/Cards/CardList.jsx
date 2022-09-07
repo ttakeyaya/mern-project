@@ -14,7 +14,6 @@ function CardList() {
   useEffect(() => {
     dispatch(getCards());
   }, [dispatch]);
-  console.log(cards);
 
   const goToNext = () => {
     const isLastCard = currentIndex === cards.length - 1;

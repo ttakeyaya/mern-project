@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { login, clear } from '../features/auth/authSlice';
 
 function Login() {
@@ -19,6 +20,7 @@ function Login() {
 
   useEffect(() => {
     if (isError) {
+      toast.error(message);
     }
     // ログイン成功後に遷移
     if (isSuccess || user) {

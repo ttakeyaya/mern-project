@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Footer from './components/Footer';
@@ -10,7 +11,7 @@ import CardList from './components/Cards/CardList';
 import Cards from './pages/Cards';
 import { PrivateRoute } from './components/Routes/PrivateRoute';
 import './App.css';
-
+import 'react-toastify/dist/ReactToastify.css';
 /**TODO
  *
  * ユーザーがログインしているかどうかで、
@@ -40,6 +41,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+      <ToastContainer />
     </>
   );
 }
