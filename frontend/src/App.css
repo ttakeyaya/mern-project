@@ -35,44 +35,6 @@ body {
   color: rgb(219, 226, 239);
 }
 
-.features {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-}
-
-.features {
-  margin-top: 2.5rem;
-}
-.features-title {
-  font-size: 2rem;
-  margin-bottom: 0.8rem;
-}
-.features-list {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  text-align: left;
-  padding-left: 0.6rem;
-}
-.features-list-container {
-  /* display: flex;
-  justify-content: space-around;
-  width: 90%;
-  height: 200px; */
-  width: 80%;
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-row-gap: 0.5rem;
-  grid-column-gap: 0.2rem;
-}
-.features-list-title {
-  font-size: 1.3rem;
-}
-.features-list-txt {
-  font-size: 0.8rem;
-}
 .home-register-btn {
   border-radius: 10px;
   font-size: 2rem;
@@ -126,13 +88,4 @@ body {
 .form-group input:focus {
   outline: 0;
   box-shadow: 0 0 0 2px rgb(33, 150, 243, 0.4) inset;
-}
-
-.footer {
-  background-color: rgb(63, 114, 175);
-  text-align: center;
-  padding: 0 10px;
-  font-size: 0.8rem;
-  padding: 1rem;
-  color: rgba(255, 255, 255, 0.7);
 }

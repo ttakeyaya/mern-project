@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
-import { updateCard } from '../features/card/cardSlice';
-
-// requirement
+import { FaPencilAlt } from 'react-icons/fa';
+import { AiFillDelete } from 'react-icons/ai';
+import './CardItem.css';
+// requirement for react-modal
 Modal.setAppElement('#root');
 
 function Card(props) {
@@ -47,10 +48,14 @@ function Card(props) {
         <td>{answer}</td>
         <td>{_changeDateFormat(createdAt)}</td>
         <td>
-          <button onClick={openModal}>編集</button>
+          <button onClick={openModal} className="card-item-icon-btn">
+            <FaPencilAlt />
+          </button>
         </td>
         <td>
-          <button onClick={onClickHandler}>x</button>
+          <button onClick={onClickHandler} className="card-item-icon-btn">
+            <AiFillDelete />
+          </button>
         </td>
       </tr>
       <Modal
